@@ -1,0 +1,169 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+button {
+  background: none;
+  border: none;
+  color: inherit;
+  padding: 0;
+  font-size: 30px;
+  cursor: pointer;
+}
+
+body {
+  font-family: "Courier New", Courier, monospace;
+}
+
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 71vh;
+}
+
+.video-container {
+  position: relative;
+  width: 90%;
+  max-width: 1000px;
+  cursor: pointer;
+  background-color: black;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-inline: auto;
+}
+
+/* Theatr mode */
+.video-container.theater-mode {
+  max-width: initial;
+  width: 100%;
+  max-height: 60vh;
+}
+/* Full screen mode */
+.video-container.full-screen {
+  max-width: initial;
+  width: 100%;
+  max-height: 100vh;
+}
+
+video {
+  width: 100%;
+  max-height: inherit;
+}
+
+.video-controls-container {
+  width: 100%;
+  position: absolute;
+  bottom: 5px;
+  left: 0px;
+  right: 0px;
+  color: white;
+  font-size: 30px;
+  z-index: 100;
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out;
+}
+
+.video-controls-container::before {
+  content: " ";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.8), transparent);
+  z-index: -1;
+  height: 100px;
+  pointer-events: none;
+}
+
+.video-container:hover .video-controls-container,
+.video-container.paused .video-controls-container,
+.video-container:focus-within .video-controls-container {
+  opacity: 1;
+}
+
+/* CONTROLS */
+.controls {
+  width: 100%;
+  padding: 10px 15px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.left-controls,
+.right-controls {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.controls .bi {
+  opacity: 0.8;
+}
+.controls .bi:hover {
+  opacity: 1;
+}
+
+/* PLAY AND PAUSE BUTTONS */
+/* if it has 'paused' class then hide Paused Icon */
+.play-pause-btn.paused .bi-pause-fill {
+  display: none;
+}
+
+/* if it not has 'paused class' then hide Play Icon */
+.play-pause-btn:not(.paused) .bi-play-fill {
+  display: none;
+}
+
+/* THEATER MODE BUTTONS */
+
+.theater-mode-btn.inactive .bi-aspect-ratio-fill {
+  display: none;
+}
+
+.theater-mode-btn:not(.inactive) .bi-aspect-ratio {
+  display: none;
+}
+
+/* CAPTION BUTTONS */
+
+.cc-btn.inactive .bi-badge-cc-fill {
+  display: none;
+}
+
+.cc-btn:not(.inactive) .bi-badge-cc {
+  display: none;
+}
+
+/* FULL SCREEN BUTTONS */
+
+.screen-large-small-btn.fullscreen-exit .bi-fullscreen {
+  display: none;
+}
+
+.screen-large-small-btn:not(.fullscreen-exit) .bi-fullscreen-exit {
+  display: none;
+}
+
+/* VOLUME BUTTONS */
+.volume-on-off-btn.volume-on .bi-volume-mute-fill {
+  display: none;
+}
+
+.volume-on-off-btn:not(.volume-on) .bi-volume-down-fill {
+  display: none;
+}
+
+/* PICTURE IN PICTURE / MINIPLAYER */
+
+.pip-btn.inactive .bi-pip-fill {
+  display: none;
+}
+
+.pip-btn:not(.inactive) .bi-pip {
+  display: none;
+}
