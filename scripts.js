@@ -9,6 +9,11 @@ const fullAndSmallScreenButton = document.querySelector(
 );
 const pictureInPictureButton = document.querySelector(".pip-btn");
 
+// volume button element
+const volumeButton = document.querySelector(".volume-on-off-btn");
+// range input element
+const volumeSlider = document.querySelector(".volume-slider");
+
 // KEYDOWN SWITCH
 
 document.addEventListener("keydown", (e) => {
@@ -35,9 +40,42 @@ document.addEventListener("keydown", (e) => {
       togglePictureInPicture();
       break;
 
+    case "m":
+      toggleMuteVolume();
+
     default:
       break;
   }
+});
+
+// VOLUME //
+
+// slider input
+volumeButton.addEventListener("click", toggleMuteVolume);
+volumeSlider.addEventListener("input", (e) => {
+  video.volume = e.target.value;
+  video.muted = e.target.value === 0;
+});
+function toggleMuteVolume() {
+  video.muted = !video.muted;
+}
+
+video.addEventListener("volumechange", () => {
+  volumeSlider.value = video.volume; // Update the slider value
+  let volumeLevel;
+
+  if (video.muted || video.volume === 0) {
+    volumeLevel = "muted";
+    volumeSlider.value = 0;
+  }
+
+  if (!video.muted && video.volume >= 0.5) {
+    volumeLevel = "high";
+  } else if (!video.muted && video.volume < 0.5 && video.volume > 0) {
+    volumeLevel = "low";
+  }
+
+  videoContainer.dataset.volumeLevel = volumeLevel;
 });
 
 //SCREEN VIEW MODES

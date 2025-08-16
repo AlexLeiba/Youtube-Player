@@ -12,7 +12,7 @@
   </head>
   <body>
     <div class="container">
-      <div class="video-container">
+      <div class="video-container" data-volume-level="low">
         <!-- add paused class  -->
         <!-- <h2>Youtube player</h2> -->
         <video src="assets/boldAndBankrupt.mp4"></video>
@@ -40,11 +40,24 @@
                 <i class="bi bi-skip-end-fill"></i>
               </button>
 
-              <!-- Volume -->
-              <button class="volume-on-off-btn volume-on">
-                <i class="bi bi-volume-down-fill"></i>
-                <i class="bi bi-volume-mute-fill"></i>
-              </button>
+              <div class="volume-container">
+                <!-- Volume -->
+                <button class="volume-on-off-btn volume-on">
+                  <i class="bi bi-volume-up-fill"></i>
+                  <i class="bi bi-volume-down-fill"></i>
+
+                  <i class="bi bi-volume-mute-fill"></i>
+                </button>
+                <!-- Range -->
+                <input
+                  class="volume-slider"
+                  type="range"
+                  min="0"
+                  max="1"
+                  value="1"
+                  step="any"
+                />
+              </div>
             </div>
 
             <!-- Captions -->
