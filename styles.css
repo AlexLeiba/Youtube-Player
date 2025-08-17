@@ -33,7 +33,7 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-inline: auto;
+  /* margin-inline: auto; */
 }
 
 /* Theatr mode */
@@ -196,4 +196,89 @@ video {
   z-index: 1;
   transform: scaleX(1);
   width: 100px;
+}
+
+.duration-container {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 16px;
+}
+
+/* PLAYBACK SPEED  */
+.playback-speed {
+  color: rgb(203, 202, 202);
+  font-size: 22px;
+}
+.playback-speed:hover {
+  color: white;
+  font-size: 22px;
+}
+
+/* TIMELINE  */
+
+.timeline-container {
+  padding: 4px 0;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.timeline-container:hover .total-time-line,
+.total-time-line:hover {
+  opacity: 1;
+  height: 8px;
+}
+
+.total-time-line {
+  cursor: pointer;
+  z-index: 1;
+
+  background-color: #d2d2d2;
+  opacity: 0.5;
+  height: 4px;
+  width: 100%;
+  margin: 0 10px;
+
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  transition: opacity 0.1s ease-in-out, height 0.1s ease-in-out;
+}
+
+.current-time-line {
+  z-index: 3;
+  position: absolute;
+  left: 0;
+  background-color: #ff0000;
+  height: 100%;
+
+  width: 0%;
+  transition: width 0.1s ease-in-out;
+}
+
+.current-time-line:after {
+  content: "";
+  position: absolute;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  height: 15px;
+  width: 15px;
+  border-radius: 50%;
+  background-color: #ff0000;
+}
+
+.preview-progress {
+  z-index: 2;
+  position: absolute;
+  left: 0;
+  background-color: gray;
+  height: 100%;
+
+  width: 0%;
+  transition: width 0.1s ease-in-out;
 }

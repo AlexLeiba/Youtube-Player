@@ -12,37 +12,50 @@
   </head>
   <body>
     <div class="container">
-      <div class="video-container" data-volume-level="low">
+      <div class="video-container paused" data-volume-level="low">
         <!-- add paused class  -->
         <!-- <h2>Youtube player</h2> -->
-        <video src="assets/boldAndBankrupt.mp4"></video>
+        <video src="assets/boldAndBankrupt.mp4">
+
+          <track kind="captions" srclang="en" src="assets/boldAndBankrupt.vtt"></track>
+        </video>
 
         <div class="video-controls-container">
           <!-- TIMELINE -->
           <div class="timeline-container"></div>
 
+          <!-- Timeline -->
+          <div class="timeline-container">
+            <div class="total-time-line">
+              
+              <div class="current-time-line"></div>
+          
+               <div class="preview-progress"></div>
+        </div>
+           
+          </div>
           <!-- CONTROLS -->
           <div class="controls">
             <div class="left-controls">
               <!-- Skip left -->
-              <button class="skip-left-btn">
+              <button class="skip-left-btn" title="Skip back 5 seconds">
                 <i class="bi bi-skip-start-fill"></i>
               </button>
 
               <!-- Play and Pause -->
-              <button class="play-pause-btn paused">
+              <button class="play-pause-btn paused" title="Play/Pause">
                 <i class="bi bi-play-fill"></i>
                 <i class="bi bi-pause-fill"></i>
               </button>
 
               <!-- Skip right -->
-              <button class="skip-right-btn">
+              <button class="skip-right-btn" title="Skip forward 5 seconds">
                 <i class="bi bi-skip-end-fill"></i>
               </button>
 
               <div class="volume-container">
                 <!-- Volume -->
-                <button class="volume-on-off-btn volume-on">
+                <button class="volume-on-off-btn volume-on" title="Mute/Unmute">
                   <i class="bi bi-volume-up-fill"></i>
                   <i class="bi bi-volume-down-fill"></i>
 
@@ -50,40 +63,49 @@
                 </button>
                 <!-- Range -->
                 <input
+                  title="Volume"
                   class="volume-slider"
                   type="range"
                   min="0"
                   max="1"
-                  value="1"
+                  value="0.5"
                   step="any"
                 />
+              </div>
+              <div class="duration-container">
+                <p class="current-time">0:00</p>
+                <p>/</p>
+                <p class="total-time"></p>
               </div>
             </div>
 
             <!-- Captions -->
             <div class="right-controls">
-              <button class="cc-btn inactive">
+              <button class="cc-btn inactive" title="Captions">
                 <i class="bi bi-badge-cc"></i>
                 <i class="bi bi-badge-cc-fill"></i>
               </button>
 
               <!-- Speed of Playback -->
-              <p class="playback-speed">1x</p>
+               <button class="playback-speed">
+
+                 <p title="Playback Speed" class="playback-speed">1x</p>
+                </button>
 
               <!-- Picture-in-Picture/ Miniplayer -->
-              <button class="pip-btn inactive">
+              <button class="pip-btn inactive" title="Picture-in-Picture">
                 <i class="bi bi-pip"></i>
                 <i class="bi bi-pip-fill"></i>
               </button>
 
               <!--Theater Mode -->
-              <button class="theater-mode-btn inactive">
+              <button class="theater-mode-btn inactive" title="Theater Mode">
                 <i class="bi bi-aspect-ratio"></i>
                 <i class="bi bi-aspect-ratio-fill"></i>
               </button>
 
               <!-- Full screen Exit -->
-              <button class="screen-large-small-btn">
+              <button class="screen-large-small-btn" title="Full Screen">
                 <i class="bi bi-fullscreen"></i>
                 <i class="bi bi-fullscreen-exit"></i>
               </button>
